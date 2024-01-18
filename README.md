@@ -3,8 +3,17 @@
 - create React App
 - tailWindCss
 - Header (In Login page)
+- Routing
 - Login Form
 - Sign Up form
+- Form validation
+- useRef Hook
+- FIrebase setup
+- Deplying App to production
+- Authentication(sign up user account)
+- Create SignUp User Account
+- Created Redux Store with UserSlice
+-
 
 # Features
 
