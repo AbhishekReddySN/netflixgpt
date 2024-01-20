@@ -13,6 +13,8 @@
 - Authentication(sign up user account)
 - Create SignUp User Account
 - Created Redux Store with UserSlice
+- registered fro TMDB APi and got acces token
+- Get Data from TMDB now playing movies list
 -
 
 # Features

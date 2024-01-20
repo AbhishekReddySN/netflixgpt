@@ -8,8 +8,8 @@ import {
   signInWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { BACKGROUND_LOGO, USER_IMG } from "../utils/constants";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -17,7 +17,6 @@ const Login = () => {
   const email = useRef(null);
   const password = useRef(null);
   const name = useRef(null);
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const handleButtonClick = () => {
@@ -42,8 +41,7 @@ const Login = () => {
           const user = userCredential.user;
           updateProfile(user, {
             displayName: name.current.value,
-            photoURL:
-              "https://media.licdn.com/dms/image/D4E35AQF4MahDiPdaQA/profile-framedphoto-shrink_400_400/0/1697149050003?e=1706137200&v=beta&t=bIPOd9Iv63Eh40eGqMY8If-H3URXzhPKSHUBb_GWhng",
+            photoURL: USER_IMG,
           })
             .then(() => {
               const { uid, email, displayName, photoURL } = auth.currentUser;
@@ -55,7 +53,6 @@ const Login = () => {
                   photoURL: photoURL,
                 })
               ); // Profile updated!
-              navigate("/browse");
               // ...
             })
             .catch((error) => {
@@ -81,8 +78,6 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          navigate("/browse");
-          console.log(user);
 
           // ...
         })
@@ -101,11 +96,7 @@ const Login = () => {
     <div>
       <Header />
       <div>
-        <img
-          className="absolute"
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/594f8025-139a-4a35-b58d-4ecf8fdc507c/d8a0fd20-b34b-405e-860f-53499c2517b7/US-en-20240108-popsignuptwoweeks-perspective_alpha_website_large.jpg"
-          alt="logo"
-        />
+        <img className="absolute" src={BACKGROUND_LOGO} alt="logo" />
       </div>
       <form
         onSubmit={(e) => e.preventDefault()}
